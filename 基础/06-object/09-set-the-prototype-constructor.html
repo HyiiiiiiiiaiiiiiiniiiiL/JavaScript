@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Object-oriented JavaScript inheritance</title>
+</head>
+
+<body>
+    <div>
+        <label for="jscode">Enter code:</label>
+        <input type="text" id="jscode">
+        <button>Submit code</button>
+    </div>
+
+    <p></p>
+</body>
+
+<script>
+    function Person(name) {
+        this.name = name
+    }
+    Person.prototype.copy = function() {
+        return new this.constructor(this.name)
+    }
+    function Student(name) {
+        Person.call(this, name)
+    }
+    Student.prototype = Object.create(Person.prototype)
+    var student1 = new Student("trinth")
+    Student.prototype.constructor = Student//没有设置之前，student1.constructor指向的是Person(),设置之后指向的是Student()
+    console.log(student1)
+    console.log(student1.copy())
+    console.log(student1.constructor)
+</script>
+
+</html>
