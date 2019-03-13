@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Simple DOM example</title>
+</head>
+
+<body>
+    <section>
+        <img src="dinosaur.png"
+            alt="A red Tyrannosaurus Rex: A two legged dinosaur standing upright like a human, with small arms, and a large head with lots of sharp teeth.">
+        <p>Here we will add a link to the <a href="https://www.mozilla.org/">Mozilla homepage</a></p>
+    </section>
+    <script>
+        var link = document.querySelector('a')
+        link.textContent = "Mozilla Developer  Network"
+        link.href = "http://developer.mozilla.org"
+
+        //创建新的元素
+        var sec = document.querySelector('section')
+        var para = document.createElement('p')
+        para.textContent = 'We hope you enjoyed the ride'
+        sec.appendChild(para)
+
+        var text = document.createTextNode('- the premier source for web development  knowledge')
+        var linkPara = document.querySelector('p')
+        linkPara.appendChild(text)
+
+        //移动和删除元素
+        sec.appendChild(linkPara)
+        //删除节点
+        //sec.removeChild(linkPara)
+        //如何通过自己删除自己--灭有方法会告诉节点删除自己，但是可以像下面这样操作
+        linkPara.parentNode.removeChild(linkPara)
+
+        //操作样式
+        //直接在想要动态设置样式的元素内部添加内联样式
+        para.style.color = 'white';
+        para.style.backgroundColor = 'black';
+        para.style.padding = '10px';
+        para.style.width = '250px';
+        para.style.textAlign = 'center';
+
+        //css样式的JavaScript属性版本以小驼峰式命名法书写，而css版本带连接符号
+        // backgroundColor  background-color
+
+
+        //第二种  在style标签中使用类名书写样式  然后使用setAttribute  para.setAttribute('class','highlight')
+
+    </script>
+</body>
+
+</html>
