@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Our superheroes</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+
+    </header>
+
+    <script>
+        //for...in 语句迭代的是自定义的属性而不是数组的元素
+        function dump_props(obj, obj_name) {
+            var result = ""
+            for (var i in obj) {
+                result += obj_name + '.' + i + "=" + obj[i] + "<br>"
+            }
+            result += "<hr>"
+            return result
+        }
+    </script>
+</body>
+
+</html>
