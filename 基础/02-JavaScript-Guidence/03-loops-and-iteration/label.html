@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Our superheroes</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+
+    </header>
+
+    <section>
+
+    </section>
+
+    <script>
+        var num = 0;
+        for (var i = 0; i < 10; i++) {
+            console.log("外层循环---", i)
+            for (var j = 0; j < 10; j++) {
+                if (i == 5 && j == 5) {
+                    console.log(i, j)
+                    //这里的break，是指当i=5,j=5时不再执行当前这轮循环中，j=6往后的数据了
+                    break;
+                }
+                console.log("内层循环------", j)
+                console.log(num++)
+            }
+        }
+
+        alert(num);
+
+        var num1 = 1;
+        outPoint:
+        for (var i = 0; i < 10; i++) {
+            for (var j = 0; j < 10; j++) {
+                if (i == 5 && j == 5) {
+                    break outPoint;
+                }
+                num1++;
+            }
+        }
+
+        alert(num1);
+
+    </script>
+</body>
+
+</html>
