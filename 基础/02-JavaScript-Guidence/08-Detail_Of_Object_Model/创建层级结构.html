@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 该示例使用非常简单的定义，使得继承得以实现。在定义完成后，就无法再创建对象时指定属性的值，
+    新创建的对象仅仅获得了默认值 -->
+    <script>
+        function Employee() {
+            this.name = ""
+            this.dept = "general"
+        }
+        function Manager() {
+            Employee.call(this);
+            this.reports = [];
+        }
+        Manager.prototype = Object.create(Employee.prototype);
+
+        function WorkerBee() {
+            Employee.call(this);
+            this.projects = [];
+        }
+        WorkerBee.prototype = Object.create(Employee.prototype)
+        function SalesPerson() {
+            WorkerBee.call(this);
+            this.dept = 'sales';
+            this.quota = 100;
+        }
+        SalesPerson.prototype = Object.create(WorkerBee.prototype);
+
+        function Engineer() {
+            WorkerBee.call(this);
+            this.dept = 'engineering';
+            this.machine = '';
+        }
+        Engineer.prototype = Object.create(WorkerBee.prototype);
+        // 使用这些定义，可以创建这些对象的实例，以获取其属性的默认值
+        var jim = new Employee; // 如构造函数无须接受任何参数，圆括号可以省略。
+        // jim.name is ''
+        // jim.dept is 'general'
+
+        var sally = new Manager;
+        // sally.name is ''
+        // sally.dept is 'general'
+        // sally.reports is []
+
+        var mark = new WorkerBee;
+        // mark.name is ''
+        // mark.dept is 'general'
+        // mark.projects is []
+        // 这个过程不会显式的将mark所继承的原型链中的属性值作为本地变量存放在mark对象中，
+        //当请求属性的值时，JavaScript将首先检查对象自身中是否存在属性的值，如果有，则返回该值
+        //如果不存在,JavaScript会检查原型链
+        //mark对象从mark._proto+中保存的原型对象中继承了name和dept属性的值。并由WorkerBee构造函数为projects属性设置了本地值
+
+        //由于这些构造器不支持为实例设置特定的值，所以这些属性的值仅仅是创建自WorkerBee的所有对象所共享的默认值。当然这些属性的值是可以修改
+        //的，所以可以为mark指定特定的信息
+        mark.name = "Doe, Mark";
+        mark.dept = "admin";
+        mark.projects = ["navigator"];
+        var fred = new SalesPerson;
+        // fred.name is ''
+        // fred.dept is 'sales'
+        // fred.projects is []
+        // fred.quota is 100
+
+        var jane = new Engineer;
+        // jane.name is ''
+        // jane.dept is 'engineering'
+        // jane.projects is []
+        // jane.machine is ''
+
+        // 对象如何从原型链中的其他对象中继承属性，已经在运行时添加属性的相关细节
+        //var mark = new WorkerBee
+
+    </script>
+</body>
+
+</html>

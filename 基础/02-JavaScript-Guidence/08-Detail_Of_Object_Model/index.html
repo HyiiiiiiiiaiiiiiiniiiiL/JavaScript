@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function Employee() {
+        this.name = ""
+        this.dept = "general"
+    }
+    function Manager(name, dept) {
+        Employee.call(this, name, dept)
+        this.reports = []
+    }
+    Manager.prototype = Object.create(Employee.prototype)
+    function WorkerBee(name, dept) {
+        Employee.call(this, name, dept)
+        this.projects = []
+    }
+    WorkerBee.prototype = Object.create(Employee.prototype)
+    function SalesPerson() {
+        WorkerBee.call(this)
+        this.dept = "sales"
+        this.quota = 100
+    }
+    SalesPerson.prototype = Object.create(WorkerBee.prototype)
+    function Engineer() {
+        Worker.call(this)
+        this.dept = 'engineering'
+        this.machine = ""
+    }
+    Engineer.prototype = Object.create(WorkerBee.prototype)
+
+</script>
+
+</html>
