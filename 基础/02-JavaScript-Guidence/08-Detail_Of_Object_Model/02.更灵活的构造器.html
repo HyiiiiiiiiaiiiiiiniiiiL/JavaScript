@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 为构造器提供参数以初始化实例的属性值
+        function Employee(name, dept) {
+            this.name = name || ""
+            this.dept = dept || "general"
+
+        }
+        function WorkerBee(projs) {
+            this.projects = projs || []
+        }
+        WorkerBee.prototype = new Employee
+        function Engineer(mach) {
+            this.dept = "engineering"
+            this.machine = mach || ""
+        }
+        //由上面对类的定义，无法为诸如name这样的继承属性指定初始值，如果想在JavaScript中为继承的属性指定初始值
+        //需要在构造器函数中添加更多的代码
+        //以上构造器函数已经能够创建一个普通对象，然后为新对象指定本地的属性和属性值。
+        //还可以直接调用原型链上的更高层次对象的构造函数，让构造器添加更多的属性
+
+        function WorkerBee2(name, dept, projs) {
+            this.base = Employee
+            this.base(name, dept)
+            this.projects = projs || []
+        }
+        function Engineer2(name, projs, match) {
+            this.base = WorkerBee2
+            this.base(name, "engineering", projs)
+            this.machine = match || ""
+        }
+        //var jane = new Engineer2("Doe, Jane", ["navigator", "javascript"], "belau")
+        //或许会认为，在Engineer2的构造器中调用了WorkerBee2的构造器，也就为Engineer2对象设置好了继承关系
+        //事实并非如此。调用WorkerBee构造器确保了Engineer对象所有在构造器中指定的属性被调用，
+        //但是如果后续在Employee2或者WorkerBee原型中添加了属性，那些属性不会被Engineer对象继承
+
+        //例如 在原型对象上添加以下,对象jane不会继承specialty属性，必须显示的设置原型才能确保动态的继承
+        // Employee.prototype.specialty = "none"
+
+        //显式设置原型
+        WorkerBee2.prototype = new Employee
+        Engineer2.prototype = new WorkerBee2
+        var jane2 = new Engineer2("Doe, Jane", ["navigator", "javascript"], "belau")
+        Employee.prototype.specialty = "none"
+        console.log("jane2", jane2.specialty)
+
+        //继承的另一种途径是使用call()/apply方法
+        function Engineer3(name, projs, mach) {
+            WorkerBee2.call(this, name, "engineering", projs)
+            this.machine = mach || ""
+
+        }
+        var jane3 = new Engineer2("Doe, Jane", ["navigator", "javascript"], "belau")
+        console.log("jane3", jane3.specialty)
+
+    </script>
+</body>
+
+</html>

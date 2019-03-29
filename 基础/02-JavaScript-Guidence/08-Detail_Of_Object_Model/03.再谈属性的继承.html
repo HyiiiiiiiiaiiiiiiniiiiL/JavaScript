@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Employee() {
+            this.name = "hhhhh";
+            this.dept = "general";
+        }
+
+        function WorkerBee() {
+            this.projects = [];
+        }
+        WorkerBee.prototype = new Employee;
+        //基于以上的定义，假设通过如下的语句创建WorkerBee的实例amy
+        var amy = new WorkerBee
+        //则amy对象将具有一个本地属性projects.name和dept则不是amy对象的本地属性
+        //而是从amy对象的_proto_属性获得的。因此，amy将具有如下的属性值
+        console.log("amy.name----", amy.name)
+        console.log("amy.dept----", amy.dept)
+        console.log("amy.projects----", amy.projects)
+        //现在假设修改了与Employee的相关联原型中的name属性的值
+        Employee.prototype.name = "Unknown"
+        console.log("修改了Employee.prototype.name----", amy.name)
+        //乍一看，可能觉得新的值会传播给所有的Employee的实例，然而，并非如此
+        //在创建Employee对象的任意实例是，该实例的name属性将获得一个本地值（“hhhh”）
+        //这就意味着在创建一个新的Employee对象作为WorderBee的原型时，WorkerBee.prototype的name属性将具有一个本地址。
+        //因此，当JavaScript查找amy对象（WorkerBee的实例）的name属性时，JavaScript将找到WorkerBee.prototype中的本地值。
+        //因此，也就不会继续在原型链中向上找到Employee.prototype
+
+        //如果想在运行是修改一个对象的属性值并且希望改值被所有该对象的后代所继承，就不能在该对象的构造函数中定义该属性
+        //而应该将该属性添加到该对象所关联的原型中
+        //假设将前面的代码作如下修改
+        function Employee2() {
+            this.dept = "general"
+        }
+        Employee2.prototype.name = "hhhhhh"
+        function WorkerBee2() {
+            this.projects = []
+        }
+        WorkerBee2.prototype = new Employee2
+        var amy2 = new WorkerBee2
+
+        Employee2.prototype.name = "Unknown"
+        console.log("amy2.name", amy2.name)
+        //所以，如果希望对象的属性值具有默认值，并且希望在运行时西谷歌这些默认值，应该在对象的原型中设置这些属性
+        //而不是在构造函数中
+
+    </script>
+
+</body>
+
+</html>
