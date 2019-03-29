@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 每个对象都有一个_proto_对象属性(除了Object),每个函数都有一个prototype对象属性
+因此，通过 "原型继承"，对象与其它对象之间形成关系。通过比较对象的_proto_属性和函数prototype属性可以检测对象
+的继承关系。JavaScript提供了便捷方法：instanceof操作符可以用来将一个对象和一个函数做检测，如果对象
+继承自函数的原型，则该操作符返回真
+-->
+    <script>
+        var f = new Foo()
+        var isTrue = (f instanceof Foo)
+    </script>
+</body>
+
+</html>
