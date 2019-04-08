@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //1.对象字母量
+    var person = {
+        name: 'per1',
+        age: 18,
+        sex: 'female',
+        eat: function() {
+            console.log("面条")
+        }
+    }
+    //2.调用系统函数
+    var person02 = new Object()
+    person02.name = "per2"
+    person02.age = 18
+    person02.sex = "male"
+    person02.eat = function() {
+        console.log("d大米")
+    }
+    //3.自定义构造函数
+    function Person(name, age, sex) {
+        this.name = name
+        this.age = age
+        this.sex = sex
+
+
+    }
+
+</script>
+
+</html>

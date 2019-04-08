@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .map {
+        width: 800px;
+        height: 600px;
+        background-color: #ccc;
+        position: relative;
+    }
+</style>
+
+<body>
+    <div class="map"></div>
+    <script src="common.js"></script>
+</body>
+<script>
+    //产生随机数对象的
+    (function(window) {
+        function Random() {
+        }
+        Random.prototype.getRandom = function(min, max) {
+            return Math.floor(Math.random() * (max - min) + min);
+        };
+        //把局部对象暴露给window顶级对象,就成了全局的对象
+        window.Random = new Random();
+    })(window);//自调用构造函数的方式,分号一定要加上
+
+    //产生小方块对象
+    (function(window) {
+        var map = document.querySelector(".map")
+        //实物的构造函数
+        function Food(width, height, color) {
+            this.width = width || 20
+            this.height = height || 20
+            this.x = 0
+            this.y = 0
+            this.color = color
+            this.element = document.createElement("div")
+        }
+        //初始化小方块的显示
+        Food.prototype.init = function(map) {
+            var div = this.element
+            div.style.position = "absolute" //脱离文档流
+            div.style.width = this.width + "px"
+            div.style.height = this.height + "px"
+            div.style.backgroundColor = this.color
+            map.appendChild(div)
+            this.render(map)
+        }
+        //产生随机位置
+        Food.prototype.render = function(map) {
+            var x = Random.getRandom(0, map.offsetWidth / this.width) * this.width
+            var y = Random.getRandom(0, map.offsetHeight / this.height) * this.height
+            this.x = x
+            this.y = y
+            var div = this.element
+            div.style.left = this.x + "px"
+            div.style.top = this.y + "px"
+
+        }
+        //实例化对象
+        var fd = new Food(20, 20, "green");
+        fd.init(map);
+        console.log(fd.x + "====" + fd.y);
+
+    })(window)
+</script>
+
+</html>

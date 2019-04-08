@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //自调用函数---一次性函数，声明的同时，直接调用了
+    (function() {
+        console.log("函数")
+    })();
+    // (function (形参) {
+    //     //局部变量
+
+    // })(实参)
+    (function(win) {
+        var num = 10;//局部变量
+        win.num = num
+
+    })(window)
+    console.log(num)
+    //如何把局部变量变成全局变量---把局部变量给window就可以了
+</script>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //自定义构造函数
+    function Person(name, age, sex) {
+        this.name = name
+        this.age = age
+        this.sex = sex
+        this.eat = function() {
+            console.log("eat  eggs")
+        }
+    }
+    //构造函数----->创建对象
+    var per1 = new Person("小米", 18, "male")
+    //实例对象是通过构造函数来创建的
+    //实例对象的构造器指向创建实例的构造函数
+    console.dir(per1)
+    console.dir(Person)
+    console.log(per1.constructor === Person) //true
+    console.log(per1.__proto__.constructor == Person)
+    console.log(per1.__proto__.constructor == Person.prototype.constructor)
+</script>
+
+</html>

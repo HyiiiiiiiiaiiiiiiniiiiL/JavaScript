@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //工厂模式创建对象
+    function createObject(name, age) {
+        var obj = new Object()
+        obj.name = name
+        obj.age = age
+        obj.sayHi = function() {
+            console.log("111111")
+        }
+    }
+    //构造函数创建对象
+    function Person(name, age) {
+        this.name = name
+        this.age = age
+        this.sayHi = function() {
+            console.log("222222")
+        }
+    }
+    var per1 = new Person("1111", 10)
+    var per2 = createObject("2222", 20)
+
+    /*
+    共同点：都是函数，都可以创建对象，都可以传入参数
+    工厂模式：
+    函数名小写
+    函数内使用new
+    函数内有返回值
+    new之后的对象是当前的对象
+    直接调用函数就可以创建对象
+
+    自定义构造函数
+    函数名大写(首字母)
+    函数内部没有new
+    函数内没有返回值
+    this是当前对象
+    需要通过new的方式来创建对象
+     */
+
+</script>
+
+</html>

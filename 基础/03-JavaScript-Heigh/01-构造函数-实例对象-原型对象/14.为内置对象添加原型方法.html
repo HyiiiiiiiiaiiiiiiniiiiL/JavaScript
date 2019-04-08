@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //我们能否为系统的对象的原型中添加方法,相当于在改变源码
+    //我希望字符串中有一个倒序字符串的方法
+    String.prototype.myReverse = function() {
+        for (var i = this.length - 1; i >= 0; i--) {
+            console.log(this[i]);
+        }
+    };
+    var str = "abcdefg";
+    str.myReverse();
+
+    String.prototype.sayHi = function() {
+        console.log(this + "哈哈,我又变帅了");
+    };
+
+    //字符串就有了打招呼的方法
+    var str2 = "小杨";
+    str2.sayHi();
+</script>
+
+</html>
