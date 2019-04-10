@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GreedySnake</title>
+</head>
+<style>
+    .map {
+        width: 800px;
+        height: 600px;
+        background-color: #CCC;
+        position: relative;
+    }
+</style>
+
+<body>
+    <div class="map"></div>
+    <script src="Food.js"></script>
+    <script src="Snake.js"></script>
+    <script src="Game.js"></script>
+    <script>
+        var gm = new Game(document.querySelector(".map"))
+        gm.init()
+    </script>
+</body>
+
+</html>
