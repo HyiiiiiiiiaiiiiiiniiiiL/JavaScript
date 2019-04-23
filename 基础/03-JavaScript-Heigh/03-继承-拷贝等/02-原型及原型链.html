@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function Person(name, age) {
+        this.name = name
+        this.age = age
+        this.eat = function() {
+            console.log("吃吃吃")
+        }
+    }
+    Person.prototype.sex = "男"
+    Person.prototype.sayHi = function() {
+        console.log("HHHHHHHHHH")
+    }
+    //实例化对象并初始化
+    var per = new Person("小明", 20)
+    per.syaHi()
+
+    //实例对象中的__proto__原型指向的是构造函数中的原型prototype
+    console.log(per.__proto__ == Person.prototype)
+    //实例对象中的__proto__是原型，浏览器使用的
+    //构造函数中的prototype是原型，程序员使用
+    //原型链：是一种关系，实例对象和原型对象之间的关系，是通过原型(__proto__)来联系的
+</script>
+
+</html>
