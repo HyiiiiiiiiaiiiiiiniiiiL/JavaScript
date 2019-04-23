@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原型最终指向了哪里</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function Person() {
+
+    }
+    Person.prototype.eat = function() {
+        console.log("1111111111")
+    }
+    var per = new Person()
+    console.dir(per)
+    console.dir(Person)
+    /*
+    实例对象中有__proto__原型
+    构造函数中有prototype原型
+    prototype是个对象
+    所以,prototype这个对象中也有__proto__,那么指向了哪里
+    实例对象中的__proto__指向的是构造函数的prototype
+    所以，prototype这个对象中__proto__指向的应该是某个构造函数的原型prototype
+
+    Person的prototype中的__proto__的指向
+    */
+    console.log("per.__proto__ === Person.prototype", per.__proto__ === Person.prototype)
+    console.log("per.__proto__.__proto__==Person.prototype.__proto__", per.__proto__.__proto__ == Person.prototype.__proto__)
+    console.log("Person.prototype.__proto__==Object.prototype", Person.prototype.__proto__ == Object.prototype)
+    console.log("Object.prototype.__proto__", Object.prototype.__proto__)
+</script>
+
+</html>

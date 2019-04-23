@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    /*
+    构造函数中的this就是实例对象
+    原型对象的方法中的this就是实例对象
+    function Person(age){
+        this.age = age
+        console.log(this)
+    }
+    Person.prototype.eat=function(){
+        console.log(this)
+        console.log("hhhhhhhhhhh")
+    }
+    var per = new Person(10)
+    per.eat()
+    */
+    function Person(age) {
+        this.age = 10
+    }
+    Person.prototype.eat = function() {
+        console.log("hhhhhhhhhhhh")
+    }
+    function Student() { }
+    Student.prototype.sayHi = function() {
+        console.log("aaaaaaaaaaa")
+    }
+    Student.prototype = new Person(10)
+    var stu = new Student()
+    stu.eat()
+    stu.sayHi()//stu.sayHi is not  a function
+
+    /*
+    原型指向可以改变
+        实例对象的原型__proto__指向的是该对象所在构造函数的原型对象
+        构造函数的原型对象(prototype)指向如果改变了，实例对象的原型(__proto__)指向也会发生改变
+    */
+</script>
+
+</html>
