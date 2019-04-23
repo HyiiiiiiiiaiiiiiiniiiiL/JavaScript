@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        function Person(age){
+            this.age =age
+        }
+        原型中添加方法
+        Person.prototype.eat = function(){
+            console.log("吃---------")
+        }
+
+        function Student(sex){
+            this.sex = sex
+        }
+
+        学生的原型中添加方法
+        Student.prototype.sayHi = function(){
+            console.log("HHHHHHH")
+        }
+
+        改变原型的指向
+        Student.prototype = new Person(10)
+        var stu = new Student("lllll")
+        sty.eat()
+
+        */
+
+
+
+        /*
+        如果原型的指向改变了，那么就应该在原型改变指向之后添加原型方法
+        */
+        function Person(age) {
+            this.age = age
+        }
+        Person.prototype.eat = function() {
+            console.log("吃---------")
+        }
+        function Student(sex) {
+            this.sex = sex
+        }
+        Student.prototype = new Person(10)
+        Student.prototype.sayHi = function() {
+            console.log("HHHHHHH")
+        }
+        var stu = new Student("lllll")
+        stu.eat()
+        stu.sayHi()
+    </script>
+</body>
+
+</html>

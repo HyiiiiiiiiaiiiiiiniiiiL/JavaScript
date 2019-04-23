@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function Person(age, sex) {
+        this.age = age
+        this.sex = sex
+    }
+    Person.prototype.sex = "lv"
+    var per1 = new Person("10", "Na")
+    console.log(per1.sex) //Na
+    /*
+    实例对象访问这个属性，应该先从实例对象中找，找到了就直接使用，找不到就去指向的原型对象中找，
+    找到了就使用，找不到就是undefined
+    通过实例对象不能改变原型对象中的属性值
+    如果想改变原型对象中的属性值，直接通过原型对象.属性="值"
+    Person.prototype.sex="hhhhhh"
+    */
+</script>
+
+</html>
