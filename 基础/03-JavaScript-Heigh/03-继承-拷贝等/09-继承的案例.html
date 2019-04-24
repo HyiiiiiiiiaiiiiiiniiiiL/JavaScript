@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //动物有名字,有体重,有吃东西的行为
+    //小狗有名字,有体重,有毛色, 有吃东西的行为,还有咬人的行为
+    //哈士奇名字,有体重,有毛色,性别, 有吃东西的行为,还有咬人的行为,逗主人开心的行为
+
+    //动物的构造函数
+    function Animal(name, weight) {
+        this.name = name
+        this.weight = weight
+    }
+    //动物的原型的方法
+    Animal.prototype.eat = function() {
+        console.log("eat--------")
+    }
+    //狗的构造函数
+    function Dog(color) {
+        this.color = color
+    }
+    Dog.prototype = new Animal("hhhh", "100kg")
+    Dog.prototype.bitePerson = function() {
+        console.log("bite person---")
+    }
+
+    //哈士奇
+    function ErHa(sex) {
+        this.sex = sex
+    }
+    ErHa.prototype = new Dog("黑白色")
+    ErHa.prototype.playHost = function() {
+        console.log("超级破坏王----")
+    }
+    var erHa = new ErHa("雄性")
+    console.log(erHa.name, erHa.weight, erHa.color);
+    erHa.eat();
+    erHa.bitePerson();
+    erHa.playHost();
+
+</script>
+
+</html>
