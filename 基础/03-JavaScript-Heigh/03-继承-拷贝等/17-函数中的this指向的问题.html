@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    /*
+    普通函数中的this---window
+    对象.方法中的this ---当前的实例对象
+    定时器方法中的this--window
+    构造函数中的this---实例对象
+    原型方法中的this--实例对象
+    BOM：中顶级对象是window,浏览器中所有的东西都是window的
+    */
+
+    //普通函数
+    function f1() {
+        console.log("普通函数中的this--", this)
+    }
+    f1()//Window
+    //定时器中的this
+    setInterval(function() {
+        console.log("定时器中的this---", this)
+    }, 1000)
+    //构造函数
+    function Person() {
+        console.log("构造函数中的this---", this)
+        this.sayHi = function() {
+            console.log(this)
+        }
+    }
+    var per = new Person()
+    console.log(per)
+    per.sayHi()
+    per.eat()
+</script>
+
+</html>
