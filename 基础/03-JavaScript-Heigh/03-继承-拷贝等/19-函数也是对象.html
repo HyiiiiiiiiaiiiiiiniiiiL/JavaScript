@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        函数是对象，对象不一定是函数
+        所有的函数实际上都是Function的构造函数创建出来的实例对象
+        */
+        var f1 = new Function("num1", "num2", "return num1+num2")
+        console.log(f1(10, 20))
+        console.log(f1.__proto__ === Function.prototype)
+    </script>
+</body>
+
+</html>

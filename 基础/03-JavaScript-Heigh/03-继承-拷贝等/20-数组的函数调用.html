@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //数组可以存储任何类型的数据
+        var arr = [
+            function() {
+                console.log("十一假期快乐");
+            },
+            function() {
+                console.log("十一假期开心");
+            }
+            ,
+            function() {
+                console.log("十一假期健康");
+            }
+            ,
+            function() {
+                console.log("十一假期安全");
+            },
+            function() {
+                console.log("十一假期如意");
+            }
+        ]
+        //回调函数:函数作为参数使用
+        arr.forEach(function(ele) {
+            ele();
+        });
+    </script>
+</body>
+
+</html>
