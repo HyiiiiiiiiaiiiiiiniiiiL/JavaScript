@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function F1(age) {
+        this.age = age
+    }
+    function F2(age) {
+        this.age = age
+    }
+    F2.prototype = new F1(10)
+    function F3(age) {
+        this.age = age
+    }
+    F3.prototype = new F2(20)
+    var f3 = new F3(30)
+    console.log(f3.age)
+    console.log(f3)
+</script>
+
+</html>
