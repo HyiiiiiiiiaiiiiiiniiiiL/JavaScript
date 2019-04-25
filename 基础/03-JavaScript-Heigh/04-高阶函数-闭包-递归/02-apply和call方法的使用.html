@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>apply 和 call方法的使用</title>
+</head>
+
+<body>
+</body>
+<script>
+    /*
+    apply和call的使用--作用改变this的指向
+    apply和call方法也是函数的调用方式
+    apply和call方法中如果没有传入参数，或者是传入的是null,那么调用该方法的函数对象对象中的this就是默认的window
+    apply和call都可以让函数或者方法来调用，传入参数和函数调用的写法不一样，但是效果是一样的
+    */
+    function f(x, y) {
+        console.log("----" + (x + y) + this)
+        return "1000"
+    }
+    f(10, 20)
+    f.apply()
+    f.call()
+    console.log("==========")
+    f.apply(null)
+    f.call(null)
+    f.apply(null, [100, 200])
+    f.call(null, 10, 20)
+    var result1 = f.apply(null, [10, 20])
+    var result2 = f.call(null, 10, 20)
+    console.log(result1)
+    console.log(result2)
+
+    function f2(x, y) {
+        console.log("这个函数是window对象的一个方法:" + (x + y) + this)
+    }
+    window.f2(10, 20)
+
+    var obj = {
+        age: 10,
+        sex: "lv"
+    }
+    window.f2.apply(obj, [10, 20])
+    window.f2.call(obj, 10, 20)
+
+    function Person(age, sex) {
+        this.age = age
+        this.sex = sex
+    }
+    Person.prototype.sayHi = function() {
+        console.log("jjjjjjjjjjjjjjj", this.sex)
+        return 1000
+    }
+    var per = new Person(10, "lv")
+    per.sayHi()
+    function Student(name, sex) {
+        this.name = name
+        this.sex = sex
+    }
+    var stu = new Student("小米", "lll")
+    var r1 = per.sayHi.apply(stu, [10, 20])
+    var r2 = per.sayHi.call(stu, 10, 20)
+    console.log(r1)//调用的是学生，相当于把person的sayHi方法赋值给stu
+    console.log(r2)//调用的是学生
+
+</script>
+
+</html>
