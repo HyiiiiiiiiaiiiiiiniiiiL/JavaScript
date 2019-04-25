@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    console.dir(Math)
+    //继承
+    function Animal(age, sex) {
+        this.age = age
+        this.sex = sex
+    }
+    //通过原型添加属性
+    Animal.prototype.color = "red"
+    Animal.prototype.eat = function() {
+        console.log("eat")
+    }
+    //构造
+    function Dog(age, sex, name) {
+        Animal.call(this, age, sex)
+        this.name = name
+    }
+    //改变原型指向，为了继承方法
+    Dog.prototype = new Animal()
+    var dog = new Animal()
+
+    var dog = new Dog(10, "女", "小苏");
+    console.log(dog.name);
+    console.log(dog.age);
+    console.log(dog.sex);
+    console.log(dog.color);
+    //调用方法
+    dog.eat();
+
+</script>
+
+</html>
