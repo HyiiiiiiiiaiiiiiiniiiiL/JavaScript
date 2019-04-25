@@ -31,10 +31,10 @@
 
     Person的prototype中的__proto__的指向
     */
-    console.log("per.__proto__ === Person.prototype", per.__proto__ === Person.prototype)
-    console.log("per.__proto__.__proto__==Person.prototype.__proto__", per.__proto__.__proto__ == Person.prototype.__proto__)
-    console.log("Person.prototype.__proto__==Object.prototype", Person.prototype.__proto__ == Object.prototype)
-    console.log("Object.prototype.__proto__", Object.prototype.__proto__)
+    console.log("per.__proto__ === Person.prototype", per.__proto__ === Person.prototype)//true
+    console.log("per.__proto__.__proto__==Person.prototype.__proto__", per.__proto__.__proto__ == Person.prototype.__proto__)//true
+    console.log("Person.prototype.__proto__==Object.prototype", Person.prototype.__proto__ == Object.prototype)//true
+    console.log("Object.prototype.__proto__", Object.prototype.__proto__)//null
 </script>
 
 </html>
