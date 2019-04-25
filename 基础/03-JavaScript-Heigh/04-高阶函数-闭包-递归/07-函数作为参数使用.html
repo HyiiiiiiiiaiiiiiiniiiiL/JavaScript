@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function f1(fn) {
+        console.log("f1的函数")
+        fn()
+    }
+    //传入匿名函数
+    f1(function() {
+        console.log("参数是匿名函数---")
+    })
+    function f2() {
+        console.log("函数f2")
+    }
+    //函数作为参数的时候，如果是命名函数，那么只传入命名函数的名字，没有括号
+    f1(f2)
+
+    function f3(fn) {
+        setInterval(function() {
+            console.log("定时器开始---")
+            fn()
+            console.log("定时器结束--")
+        }, 100);
+    }
+    f3(function() {
+        console.log("dddddddddd")
+    })
+
+</script>
+
+</html>
