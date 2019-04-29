@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="按钮" id="btn">
+</body>
+<script>
+    var str = "测试33333";
+    (function() {
+        console.log(str)//这样访问的是外部的str
+        //如果下面再定义str  ,上面的打印就会是undefined
+    }());
+    (function() {
+        var str = "测试11111"
+        str = str.substr(2)
+        console.log(str)
+    }());
+    str = str.substr(2);
+    console.log(str);
+    (function() {
+        var str = "测试22222"
+        str = str.substr(2)
+        console.log(str)
+    }());
+    (function() {
+        document.getElementById("btn").onclick = function() {
+            console.log("按钮点击")
+        }
+    }());
+</script>
+
+</html>

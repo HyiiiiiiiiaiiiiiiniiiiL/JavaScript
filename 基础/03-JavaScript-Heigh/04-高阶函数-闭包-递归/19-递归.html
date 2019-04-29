@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //递归：函数中调用函数自己，此时就是递归，递归一定要有结束条件
+    // function f1() {
+    //     console.log("hhhhhhhhhhh")
+    //     f1()
+    // }  因为没有结束条件造成了死循环
+
+    var i = 0;
+    function f1() {
+        console.log("zzzzzzzzzzzz")
+        i++
+        if (i < 5) {
+            f1()
+        }
+    }
+    f1()
+</script>
+
+</html>

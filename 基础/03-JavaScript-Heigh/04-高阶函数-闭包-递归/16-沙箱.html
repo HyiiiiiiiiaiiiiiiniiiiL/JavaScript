@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    /*
+    沙箱：环境，黑盒，在一个虚拟的环境中模拟真实世界，做实验，实验结果和真实世界的结果是一样的，但是不会影响真实世界
+    */
+
+    //两种表现形式都要带上分号
+    //沙箱的第一种表现形式
+    (function() {
+        var a = 10
+        console.log("a", a)
+    })();
+    //沙箱的第二种表现形式
+    (function() {
+        var b = 20
+        console.log("b", b)
+    }());
+
+    //使用沙箱可以避免局部变量和全局变量冲突
+    var num = 100;
+    //上面这句声明没有加上分号，会导致下面这个函数报错
+    (function() {
+        var num = 2000
+        console.log("沙箱中的num", num) //2000
+    }());
+    console.log("全局变量的num", num)//100
+</script>
+
+</html>
