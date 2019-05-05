@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 版本一：html代码中嵌入js代码，不方便后期的修改和维护 -->
+    <input type="button" value="显示效果" onclick="alert('点击')">
+
+    <!-- 版本二：js代码和html分离 -->
+    <input type="button" value="显示效果" onclick="f1()">
+    <script>
+        function f1() {
+            alert("对话框")
+        }
+    </script>
+
+    <!-- 版本三 :js代码和html彻底分离 -->
+    <input type="button" value="显示效果" id="btn">
+    <script>
+        //根据id属性的值从文档中获取这个元素
+        var btnObj = document.getElementById("btn")
+        //为当前的这个按钮元素(对象)，注册点击事件，添加事件处理函数(匿名函数)
+        btnObj.onclick = function() {
+            alert("great")
+        }
+        document.getElementById("btn").onclick = function() {
+            alert("great")
+        }
+    </script>
+</body>
+<script>
+    /*
+    点击操作：---事件：就是一件事，有触发和响应，事件源
+    按钮被点击，弹出对话框
+    按钮---事件源
+    点击---事件
+    被点了---触发
+    弹框--响应
+    */
+</script>
+
+</html>

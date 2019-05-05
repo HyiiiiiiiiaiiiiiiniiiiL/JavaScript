@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="按钮" id="btn">
+    <script>
+        var btnObj = document.getElementById("btn")
+        btnObj.onclick = function() {
+            //在某个元素的事件中，自己的事件中的this就是当前的这个元素对象
+            this.value = "我是按钮"
+            this.type = "text"
+            this.id = "btn2"
+        }
+    </script>
+</body>
+
+</html>

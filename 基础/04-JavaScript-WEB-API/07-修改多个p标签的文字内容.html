@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="显示效果" id="btn">
+    <div id="div1">
+        <p>测试1</p>
+        <p>测试1</p>
+        <p>测试1</p>
+        <p>测试1</p>
+    </div>
+    <div id="div2">
+        <p>测试2</p>
+        <p>测试2</p>
+        <p>测试2</p>
+        <p>测试2</p>
+    </div>
+</body>
+<script>
+    /*
+    document.getElementsByTagName("标签名")返回的是一个伪数组
+    无论获取的是一个标签还是多个标签，最终都是在数组中存储的
+    */
+    document.getElementById("btn").onclick = function() {
+        var pObjs = document.getElementsByTagName("p")
+        for (var i = 0; i < pObjs.length; i++) {
+            pObjs[i].innerText = "重置p标签的内容"
+        }
+    }
+</script>
+
+</html>

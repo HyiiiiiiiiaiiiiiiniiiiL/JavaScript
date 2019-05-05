@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="测试">
+    <input type="button" value="测试">
+    <input type="button" value="测试">
+    <input type="button" value="测试">
+    <input type="button" value="测试">
+</body>
+<script>
+    var btnObjs = document.getElementsByTagName("input")
+    for (var i = 0; i < btnObjs.length; i++) {
+        btnObjs[i].onclick = function() {
+            for (var j = 0; i < btnObjs.length; j++) {
+                btnObjs[j].value = "测试"
+            }
+            this.value = "没测试"
+        }
+    }
+</script>
+
+</html>

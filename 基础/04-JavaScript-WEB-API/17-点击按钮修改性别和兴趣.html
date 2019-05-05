@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="修改性别" id="btn1">
+    <input type="radio" value="1" name="sex">男
+    <input type="radio" value="2" name="sex" id="rad1">女
+    <input type="radio" value="3" name="sex">保密
+    <br />
+    <input type="button" value="选择兴趣" id="btn2">
+    <input type="checkbox" value="1" name="xingqu" />吃饭
+    <input type="checkbox" value="2" name="xingqu" />睡觉
+    <input type="checkbox" value="3" name="xingqu" />常见
+    <input type="checkbox" value="4" name="xingqu" id="ck1" />睡懒觉
+    <input type="checkbox" value="5" name="xingqu" id="ck2" />地方了
+
+</body>
+<script>
+    function my$(id) {
+        return document.getElementById(id)
+    }
+    my$("btn1").onclick = function() { my$("rad1").checked = true }
+    my$("btn2").onclick = function() {
+        my$("ck1").checked = true
+        my$("ck2").checked = true
+    } </script>
+
+</html>

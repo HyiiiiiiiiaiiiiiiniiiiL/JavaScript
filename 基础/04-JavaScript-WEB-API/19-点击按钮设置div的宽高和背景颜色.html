@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="设置样式" id="btn">
+    <div id="box"></div>
+</body>
+<script src="common.js"></script>
+<script>
+    //css属性如果是多个单词拼成的background-color,在js代码中DOM操作的时候，把-干掉，后面 的
+    //单词的首字母大写即可
+    my$("btn").onclick = function() {
+        my$("box").style.width = "300px"
+        my$("box").style.height = "200px"
+        my$("box").style.backgroundColor = "pink"
+    }
+</script>
+
+</html>

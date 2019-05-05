@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="点菜" id="btn">
+    <select name="" id="ss">
+        <option value="1">油炸豆腐</option>
+        <option value="2">臭豆腐</option>
+        <option value="3">小米</option>
+        <option value="4" id="op1">大米</option>
+    </select>
+    <br />
+    <textarea name="" id="tt" cols="30" rows="10" readonly="readonly">
+            注册用户的协议:
+
+            某人问智者,
+            大师:您觉得怎么做才是最快乐的?
+            回答说:不要和愚者辩论
+            这个人说:我不这么认为!
+            大师说:您说的对,
+    </textarea>
+    <input type="button" value="注册" id="btn2">
+</body>
+<script src="common.js"></script>
+<script>
+    my$("btn").onclick = function() {
+        my$("op1").selected = true
+    }
+    my$("btn2").onclick = function() {
+        my$("tt").value = "hhhh"
+    }
+</script>
+
+</html>
