@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 第一种写法 -->
+    <a href="http://www.baidu.com" onclick="alert('点击链接'); return false">百度</a>
+    <!-- 第二种写法 -->
+    <a href="http://www.baidu.com" onclick="return f1()">百度2</a>
+    <!-- 第三章写法 -->
+    <a href="http://www.baidu.com" id="ak">百度3</a>
+</body>
+<script>
+    function f1() {
+        alert("弹框！")
+        return false
+    }
+    document.getElementById("ak").onclick = function() {
+        alert("哈哈")
+        return false
+    }
+</script>
+
+</html>
