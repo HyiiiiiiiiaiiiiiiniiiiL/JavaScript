@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="获取值" id="btn">
+    <p>内容内容</p>
+</body>
+<script src="../Base/common.js"></script>
+<script>
+    my$("btn").onclick = function() {
+        console.log(document.getElementsByTagName("p")[0].innerText)
+    }
+</script>
+
+</html>

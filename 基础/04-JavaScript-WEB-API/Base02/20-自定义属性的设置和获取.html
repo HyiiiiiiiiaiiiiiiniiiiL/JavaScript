@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="uu">
+        <li>测试001</li>
+        <li>测试002</li>
+        <li>测试003</li>
+        <li>测试004</li>
+        <li>测试005</li>
+    </ul>
+</body>
+<script src="../Base/common.js"></script>
+<script>
+    /*
+    设置自定义属性：setAttribute("属性名",属性值)
+    获取自定义属性：getAttribute("属性名")
+    */
+    var list = my$("uu").getElementsByTagName("li")
+    for (var i = 0; i < list.length; i++) {
+        list[i].setAttribute("score", (i + 1) * 10)
+        list[i].onclick = function() {
+            alert(this.getAttribute("score"))
+        }
+    }
+</script>
+
+</html>

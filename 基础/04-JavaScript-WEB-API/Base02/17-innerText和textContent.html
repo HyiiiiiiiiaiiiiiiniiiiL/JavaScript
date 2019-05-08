@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="设置值" id="btn">
+    <div id="dv">啦啦啦啦</div>
+</body>
+<script src="../Base/common.js"></script>
+<script>
+    /*
+    如果这个属性在浏览器的中不支持，那么这个属性的类型就是undefined
+    */
+    //设置任意标签中间的文本内容
+    function setInnerText(element, text) {
+        if (typeof element.textContent === "undefined") {
+            //不支持这个属性
+            element.innerText = text
+        } else {
+            element.textContent = text
+        }
+    }
+
+    //获取任意标签中间的文本
+    function getInnerText(element) {
+        if (typeof element.textContent === "undefined") {
+            return element.innerText
+        } else {
+            return element.textContent
+        }
+    }
+
+
+
+
+
+
+    my$("btn").onclick = function() {
+        setInnerText(my$('dv'), "重置内容")
+    }
+</script>
+
+</html>

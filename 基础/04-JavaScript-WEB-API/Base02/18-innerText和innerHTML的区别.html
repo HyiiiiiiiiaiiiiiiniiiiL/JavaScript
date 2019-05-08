@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="获取内容" id="btn">
+    <div id="dv">
+        这是div
+        <p>这是一个p</p>
+    </div>
+</body>
+<script src="../Base/common.js"></script>
+<script>
+    /*
+    使用innerText主要是设置文本的，设置标签内的文本
+    使用innerHTML主要是标签中设置新的的表内容
+    如果要设置标签的内容，使用innerHTML,如果设置文本的内容
+    innerText或者textContent或innerHTML
+    */
+    // my$("btn").onclick = function() {
+    // my$("dv").innerText = "<p>犀利</p>" 显示的是未解析的html
+    // my$("dv").innerHTML = "<p>哈哈哈哈哈</p>" 显示的是解析后内容
+    // }
+    my$("btn").onclick = function() {
+        console.log(my$("dv").innerText)//获取的元素内容的所有的文本的内容
+        console.log(my$("dv").innerHTML)//获取的是div下的原本的内容标签就显示标签
+    }
+
+</script>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="uu">
+        <li score="10">测试001</li>
+        <li score="20">测试002</li>
+        <li score="30">测试003</li>
+        <li score="40">测试004</li>
+        <li score="50">测试005</li>
+    </ul>
+</body>
+<script src="../Base/common.js"></script>
+<script>
+    /*
+    html中本身没有属性可以存储成绩的，这是可以自动添加属性
+    在html标签上添加自定义的属性，如果想要获取这个属性的值，需要使用getAttribute("自定义属性名")，才能
+    获取到这个属性
+    */
+    var list = document.getElementsByTagName("li")
+    for (var i = 0; i < list.length; i++) {
+        list[i].onclick = function() {
+            alert(this.getAttribute("score"))
+        }
+    }
+</script>
+
+</html>
