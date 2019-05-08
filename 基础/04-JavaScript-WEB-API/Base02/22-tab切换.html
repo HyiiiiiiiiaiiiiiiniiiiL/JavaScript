@@ -6,10 +6,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #tabBox {
+            width: 400px;
+            height: 500px;
+            border: 1px solid gray;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            display: inline-block;
+        }
+
+        #tabHeader {
+            border-bottom: 1px solid gray;
+        }
+
+        #title li {
+            width: 60px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            background-color: pink;
+            margin-right: 30px;
+            cursor: pointer;
+        }
+
+        #title:first-child {
+            margin-left: 25px;
+        }
+
+        #title .current {
+            background-color: blueviolet;
+        }
+
+        #tabContent {
+            height: 459px;
+            background-color: blueviolet;
+        }
+
+        #content li {
+            display: none;
+        }
+
+        #content .current {
+            display: block;
+        }
+    </style>
 </head>
 
 <body>
-
+    <div id="tabBox">
+        <div id="tabHeader">
+            <ul id="title">
+                <li class="current">体育</li>
+                <li>娱乐</li>
+                <li>新闻</li>
+                <li>综合</li>
+            </ul>
+        </div>
+        <div id="tabContent">
+            <ul id="content">
+                <li class="current">体育模块</li>
+                <li>娱乐模块</li>
+                <li>新闻模块</li>
+                <li>综合模块</li>
+            </ul>
+        </div>
+    </div>
 </body>
+<script src="../Base/common.js"></script>
+<script>
+    var hd = my$("tabHeader")
+    var content = my$("tabContent")
+    var contentLi = my$("content").getElementsByTagName("li")
+    var headerLi = my$("title").getElementsByTagName("li")
+    for (var i = 0; i < headerLi.length; i++) {
+        headerLi[i].setAttribute("index", i)
+        headerLi[i].onclick = function() {
+            for (var j = 0; j < headerLi.length; j++) {
+                headerLi[j].removeAttribute("class")
+            }
+            this.className = "current"
+            var num = this.getAttribute("index")
+            for (var k = 0; k < contentLi.length; k++) {
+                contentLi[k].removeAttribute("class")
+            }
+            contentLi[num].className = "current"
+        }
+    }
+</script>
 
 </html>
