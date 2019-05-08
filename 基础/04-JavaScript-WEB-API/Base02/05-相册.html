@@ -6,11 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        body {
+            font-family: "Helvetica", "Arial", "serif";
+            color: #333;
+            background-color: gray;
+        }
+
+        ul {
+            padding: 0;
+        }
+
+        ul li {
+            display: inline-block;
+            margin-right: 12px;
+        }
+    </style>
 </head>
 
 <body>
-
+    <h2>相册</h2>
+    <ul id="gallery">
+        <li>
+            <a href="../Base/images/1.jpg" title="picture1">
+                <img src="../Base//images//1-small.jpg" width="100" alt="picture1">
+            </a>
+        </li>
+        <li>
+            <a href="../Base/images/2.jpg" title="picture2">
+                <img src="../Base//images//2-small.jpg" width="100" alt="picture1">
+            </a>
+        </li>
+        <li>
+            <a href="../Base/images/3.jpg" title="picture3">
+                <img src="../Base//images//3-small.jpg" width="100" alt="picture1">
+            </a>
+        </li>
+        <li>
+            <a href="../Base/images/4.jpg" title="picture4">
+                <img src="../Base//images//4-small.jpg" width="100" alt="picture1">
+            </a>
+        </li>
+    </ul>
+    <img src="../Base/images/placeholder.png" width="450" id="image">
+    <p id="des">选择一个图片</p>
 </body>
-<script></script>
+<script src="../Base/common.js"></script>
+<script>
+    var aObjs = my$("gallery").getElementsByTagName("a")
+    for (var i = 0; i < aObjs.length; i++) {
+        aObjs[i].onclick = function() {
+            my$("image").src = this.href
+            my$("des").innerText = this.title
+            return false
+        }
+    }
+</script>
 
 </html>

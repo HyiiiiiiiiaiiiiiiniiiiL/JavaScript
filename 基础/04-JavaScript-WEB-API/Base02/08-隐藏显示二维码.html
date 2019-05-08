@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .nodeSmall {
+            width: 50px;
+            height: 50px;
+            background: url(../Base/images/bgs.png) no-repeat -159px -51px;
+            position: fixed;
+            right: 10px;
+            top: 40%;
+        }
+
+        .erweima {
+            position: absolute;
+            top: 0;
+            left: -150px;
+        }
+
+        .nodeSmall a {
+            display: block;
+            width: 50px;
+            height: 50px;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nodeSmall" id="node_small">
+        <a href=""></a>
+        <div class="erweima hide" id="er">
+            <img src="../Base/images/456.png" alt="">
+        </div>
+    </div>
+</body>
+<script src="../Base/common.js"></script>
+<script>
+    //先获取最外面的div
+    var aObj = my$("node_small").getElementsByTagName("a")[0];
+    //为a注册鼠标进入
+    aObj.onmouseover = function() {
+        my$("er").className = "erweima show";
+    };
+    //为a注册鼠标离开
+    aObj.onmouseout = function() {
+        my$("er").className = "erweima hide";
+    };
+</script>
+
+</html>
