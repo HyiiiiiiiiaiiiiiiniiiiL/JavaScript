@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="dv">
+        <span>span标签</span>
+        <p>p标签</p>
+        <ul id="uu">
+            <li>hhhh</li>
+        </ul>
+    </div>
+</body>
+<script>
+    /*
+    文档：document
+    元素：页面中所有的标签，元素----element,标签---元素---对象
+    节点：页面中所有的内容(标签，属性，文本(文字，换行，空格，会从)),Node
+    根元素:html元素
+    节点的属性：（可以使用标签--元素，可以使用属性节点，文本节点）
+    nodeType:节点的类型：1---标签 2---属性  3---文本
+    nodeName 节点的名字：标签节点---大写的标签名，属性节点---小写的属性名，文本节点--#text
+    nodeValue:节点的值：标签节点---null,属性节点--属性值  文本节点--文本内容
+    */
+</script>
+<script src="../Base/common.js"></script>
+<script>
+    var ulObj = my$("uu")
+    //parentNode 返回指定的节点在DOM树中的父节点，parentNode是指定节点的父节点，一个元素节点的父节点
+    //可能是一个元素(Element)节点，页可能一个文档(Document)节点，或者是个文档碎片(DocumentFrahment)节点
+    console.log("ul标签的父级节点", ulObj.parentNode)
+    console.log("ul标签的父级元素", ulObj.parentElement)
+    //Node.nodeType表示的是该节点的类型 nodeType属性可用来区分不同类型的节点，比如元素，文本和注释，返回一个整数，代表节点的类型
+    console.log("nodeType", ulObj.parentNode.nodeType)
+    console.log("nodeName", ulObj.parentNode.nodeName)//大写标签名
+    //属性返回或设置当前节点的值，value是一个包含当前节点的值的字符串，对于文档节点来说，nodeValue返回null,
+    //对于text,comment和CDATA,nodeValue返回该节点的文本内容，对于attribute节点来说，返回该属性的属性值
+    console.log("nodeValue", ulObj.parentNode.nodeValue)
+
+    //找到根节点，循环获取子节点的内容
+
+    var dvObj = my$("dv")
+    for (var i = 0; i < dvObj.childNodes.length; i++) {
+        var node = dvObj.childNodes[i]
+        console.log(node.nodeType + "=====" + node.nodeName + "====" + node.nodeValue)
+    }
+</script>
+
+</html>
