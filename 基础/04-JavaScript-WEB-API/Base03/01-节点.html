@@ -13,7 +13,9 @@
         <span>span标签</span>
         <p>p标签</p>
         <ul id="uu">
-            <li>hhhh</li>
+            <li>aaaa</li>
+            <li id="Two">hhhh</li>
+            <li>bbbb</li>
         </ul>
     </div>
 </body>
@@ -50,6 +52,20 @@
         var node = dvObj.childNodes[i]
         console.log(node.nodeType + "=====" + node.nodeName + "====" + node.nodeValue)
     }
+
+    console.log("========获取相关节点=========")
+    console.log("父节点 parentNode", ulObj.parentNode)
+    console.log("父元素  parentElement", ulObj.parentElement)
+    console.log("子节点 childNodes", ulObj.childNodes)
+    console.log("子元素  children", ulObj.children)
+    console.log("第一个子节点 IE8中是第一个子节点  firderChild", ulObj.firstChild)
+    console.log("第一个子元素  IE8不支持", ulObj.firstElementChild)
+    console.log("最后一个子节点 IE8最后一个子节点 lastChild", ulObj.lastChild)
+    console.log("最后一个元素节点 lastElementChild", ulObj.lastElementChild)
+    console.log("前一个兄弟节点", my$("Two").previousSibling)
+    console.log("前一个兄弟元素", my$("Two").previousElementSibling)
+    console.log("后一个兄弟节点", my$("Two").nextSibling)
+    console.log("后一个兄弟元素", my$("Two".nextElementSibling))
 </script>
 
 </html>
