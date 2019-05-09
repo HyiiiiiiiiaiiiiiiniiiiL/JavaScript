@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>1111hhhhh</li>
+        <li>2222xxxxx</li>
+        <li>3333zzzzz</li>
+        <li>4444ggggg</li>
+        <li>5555aaaaa</li>
+    </ul>
+</body>
+<script src="common.js"></script>
+<script>
+    //element.firstChild---->谷歌和火狐获取的第一个子节点
+    //element.firstElementChild--->谷歌和火狐第一个子元素，IE8不支持
+
+    //获取任意一个父级元素的第一个子级元素
+    function getFirstElementChild(element) {
+        if (element.firstElementChild) {
+            return element.firstElementChild
+        } else {
+            var node = element.firstChild;
+            while (node && node.nodeType != 1) {
+                node = node.nextSibling
+            }
+            return node
+        }
+    }
+
+    //获取任意一个父级元素的最后一个子级元素
+    function getLastElementChild(element) {
+        if (element.lastElementChild) {
+            return element.lastElementChild
+        } else {
+            var node = element.lastChild;
+            while (node && node.nodeType != 1) {
+                node = node.previousSibling
+            }
+            return node
+        }
+    }
+</script>
+
+</html>
