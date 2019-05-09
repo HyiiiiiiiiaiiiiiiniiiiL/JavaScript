@@ -2,34 +2,42 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
 </head>
 
 <body>
 
 </body>
 <script>
-    /*
-    根据id属性的值获取元素，返回的是一个元素对象
-    document.getElementById("id名")
-    根据标签名获取元素，返回的是一个HtmlCollection的伪数组，里面保存了多个DOM对象
-    document.getElementByTagName("标签名")
+  /*
+  HTMLCollection是及时更新的；当其所包含的文档结构发生改变时，它会自动更新
+  NodeList对象是一个节点的集合，是由Node.childNodes和document.querySelectorAll
+  在一些情况下，NodeList对象是一个实时集合，也就是说，如果文档中的节点树发生变化
+  ，则已经存在的实时NodeList对象也随之变化，Node.childNodes是实时的，
+  在其他情况下，NodeList是一个静态集合，也就意味着随后文档对象模型的任何改动都不会
+  影响集合的内容。比如document.querySelectorAll就会返回一个静态的NodeList
 
-     * 下面的几个,有的浏览器不支持
-  *
-  * 根据name属性的值获取元素,返回来的是一个伪数组,里面保存了多个的DOM对象
-  * document.getElementsByName("name属性的值")
-  * 根据类样式的名字来获取元素,返回来的是一个伪数组,里面保存了多个的DOM对象
-  * document.getElementsByClassName("类样式的名字")
-  * 根据选择器获取元素,返回来的是一个元素对象
-  * document.querySelector("选择器的名字");
+
+  根据id属性的值获取元素，返回的是一个元素对象
+  document.getElementById("id名")
+  根据标签名获取元素，返回的是一个HtmlCollection的伪数组，里面保存了多个DOM对象
+  document.getElementByTagName("标签名")
+
+   * 下面的几个,有的浏览器不支持
 *
-  * 根据选择器获取元素,返回来的是一个伪数组,里面保存了多个的DOM对象
-  * document.querySelectorAll("选择器的名字")
-    */
+* 根据name属性的值获取元素,返回来的是一个伪数组,里面保存了多个的DOM对象
+* document.getElementsByName("name属性的值")
+* 根据类样式的名字来获取元素,返回来的是一个伪数组,里面保存了多个的DOM对象
+* document.getElementsByClassName("类样式的名字")
+* 根据选择器获取元素,返回来的是一个元素对象
+* document.querySelector("选择器的名字");
+*
+* 根据选择器获取元素,返回来的是一个伪数组,里面保存了多个的DOM对象
+* document.querySelectorAll("选择器的名字")
+  */
 </script>
 
 </html>
