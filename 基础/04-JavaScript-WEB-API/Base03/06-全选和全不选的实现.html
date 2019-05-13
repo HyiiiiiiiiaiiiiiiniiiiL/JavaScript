@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table {
+            border: 1px solid black;
+            width: 200px;
+            border-collapse: collapse;
+        }
+
+        thead th,
+        tfoot th,
+        tbody td {
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        thead {
+            background-color: blanchedalmond;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <input type="checkbox" id="j_cbAll">
+                    </th>
+                    <th>
+                        菜名
+                    </th>
+                    <th>
+                        饭店
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="j_tb">
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>aaa</td>
+                    <td>bbb</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>ccc</td>
+                    <td>sss</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>ttt</td>
+                    <td>jjj</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+<script src='../Base/common.js'></script>
+<script>
+    var ckAll = my$("j_cbAll")
+    var cks = my$("j_tb").getElementsByTagName("input")
+    ckAll.onclick = function() {
+        for (var i = 0; i < cks.length; i++) {
+            cks[i].checked = this.checked
+        }
+    }
+    for (var i = 0; i < cks.length; i++) {
+        cks[i].onclick = function() {
+            var flag = true
+            for (var j = 0; j < cks.length; j++) {
+                if (!cks[j].checked) {
+                    flag = false
+                    break;
+                }
+            }
+            ckAll.checked = flag
+        }
+    }
+</script>
+
+</html>

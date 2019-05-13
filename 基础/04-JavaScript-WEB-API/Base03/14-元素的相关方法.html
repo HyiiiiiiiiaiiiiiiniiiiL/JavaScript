@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="显示效果" id="btn">
+    <input type="button" value="去掉第一个子元素" id="btn2">
+    <input type="button" value="去掉最后一个子元素" id="btn3">
+    <div id="dv"></div>
+</body>
+<script src="../Base/common.js"></script>
+<script>
+    var i = 0
+    my$("btn").onclick = function() {
+        i++
+        var obj = document.createElement("input")
+        obj.type = "button"
+        obj.value = "按钮" + i
+        my$("dv").insertBefore(obj, my$("dv").firstElementChild)
+        //把新的子元素插入到第一个子元素的前面
+    }
+    my$("btn2").onclick = function() {
+        //移除父元素中第一个子元素
+        my$("dv").removeChild(my$("dv").firstElementChild)
+    }
+    my$("btn3").onclick = function() {
+        while (my$("dv").firstElementChild) {
+            my$("dv").removeChild(my$("dv").firstElementChild)
+        }
+    }
+</script>
+
+</html>

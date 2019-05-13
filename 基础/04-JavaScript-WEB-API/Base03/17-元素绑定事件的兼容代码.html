@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script src="../Base/common.js"></script>
+<script>
+    function addEventListener(element, type, fn) {
+        if (element.addEventListener) {
+            element.addEventListener(type, fn, false)
+        } else if (element.attachEvent) {
+            element.attachEvent("on" + type, fn)
+        } else {
+            element["on" + type] = fn
+        }
+    }
+</script>
+
+</html>

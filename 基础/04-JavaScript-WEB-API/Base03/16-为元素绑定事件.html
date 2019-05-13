@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="按钮" id="btn">
+</body>
+<script src="../Base/common.js"></script>
+<script>
+    /*
+    为元素绑定事件
+    1.对象.addEventListener("事件类型",事件处理函数,false) 谷歌和火狐支持，IE8不支持
+    2.对象.attachEvent("有on的事件类型",事件处理函数) 谷歌火狐不支持  IE8不支持
+
+    为按钮绑定点击事件 addEventListener
+    参数1：事件的类型---事件的名字，没有on
+    参数2：事件的处理函数--函数(命名函数，匿名函数)
+    参数3：布尔类型
+
+    my$("btn").addEventListener("click",function(){
+        console.log("11111111")
+    },false)
+    my$("btn").addEventListener("click",function(){
+        console.log("bbbbbbb")
+    },false)
+    my$("btn").addEventListener("click",function(){
+        console.log("cccccccccc")
+    },false)
+
+
+    attachEvent
+    参数1：事件类型---事件名，有on
+    参数2：事件处理函数---函数(命名函数，匿名函数)
+    my$("btn").attachEvent("onclick",function(){
+        console.log("aaaaaaaaaa")
+    })
+    my$("btn").attachEvent("onclick",function(){
+        console.log("bbbbbbbbbb")
+    })
+    */
+
+
+    my$("btn").addEventListener("click", function() {
+        console.log("11111111")
+    }, false)
+    my$("btn").addEventListener("click", function() {
+        console.log("bbbbbbb")
+    }, false)
+    my$("btn").addEventListener("click", function() {
+        console.log("cccccccccc")
+    }, false)
+</script>
+
+</html>

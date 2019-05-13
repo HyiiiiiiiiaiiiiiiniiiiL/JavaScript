@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 200px;
+            border: 1px solid pink;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="使用document.write创建一个p" id="btn">
+    <input type="button" value="使用.innerHTML创建标签" id="btn2">
+    <div id="dv"></div>
+</body>
+<script src="../Base/common.js"></script>
+<script>
+    /*
+        元素创建的三种方式：
+        document.write("标签及内容")
+        对象.innerHTML = "标签及内容"
+        document.createElement("标签的名字")
+    */
+    my$("btn").onclick = function() {
+        document.write("<p>创建一个p标签</p>")
+        /*
+        使用document.write创建标签，页面原本的的所有内容会被替换掉
+        */
+    }
+    my$("btn2").onclick = function() {
+        my$("dv").innerHTML = "<p>使用innerHTML创建一个P</p>"
+    }
+</script>
+
+</html>

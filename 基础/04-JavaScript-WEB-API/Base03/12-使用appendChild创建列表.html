@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 300px;
+            height: 600px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="创建列表" id="btn">
+    <div id="dv"></div>
+</body>
+<script src="../Base/common.js"></script>
+<script>
+    var names = ["aaa", "bbb", "ccc", "ddd", "eee"]
+    my$("btn").onclick = function() {
+        var ulObj = document.createElement("ul")
+        my$("dv").appendChild(ulObj)
+        for (var i = 0; i < names.length; i++) {
+            var liObj = document.createElement("li")
+            liObj.innerHTML = names[i]
+            ulObj.appendChild(liObj)
+            liObj.onmouseover = mouseoverHandle
+            liObj.onmouseout = mouseoutHandle
+        }
+    }
+    function mouseoverHandle() {
+        this.style.backgroundColor = "yellow"
+    }
+    function mouseoutHandle() {
+        this.style.backgroundColor = ""
+    }
+</script>
+
+</html>
