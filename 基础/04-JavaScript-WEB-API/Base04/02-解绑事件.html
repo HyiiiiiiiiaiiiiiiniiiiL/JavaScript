@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="第一种解绑方式" id="btn1">
+    <input type="button" value="第二种解绑方式" id="btn2">
+    <input type="button" value="第三种解绑方式" id="btn3">
+    <input type="button" value="解绑一" id="btn4">
+    <input type="button" value="解绑二" id="btn5">
+    <input type="button" value="解绑三" id="btn6">
+</body>
+<script src="../Base/common.js"></script>
+<script>
+    /*
+    解绑事件:
+    用什么方式绑定事件，就用对应的方式解绑事件
+    1.绑定与解绑
+    对象.on事件名字 = 事件处理函数
+    对象.on事件名字 = null
+    2.绑定与解绑
+    对象.addEventListener("没有on的事件类型",命名函数,false)绑定事件
+    对象.removeEventListener("没有on的事件类型",函数名字,false)
+    3.绑定与解绑
+    对象.attachEvent("on事件类型",命名函数)
+    对象.detachEvent("on事件类型",函数名字)
+    */
+
+    //对象.on事件名字
+    my$("btn").onclick = function() {
+        console.log("111111111")
+    }
+    my$("btn4").onclick = function() {
+        my$("btn").onclick = null
+    }
+
+    function f1() {
+        console.log("aaaaaaa")
+    }
+    function f2() {
+        console.log("bbbbbbbbb")
+    }
+    my$("btn1").addEventListener("click", f1, false)
+    my$("btn5").removeEventListener("click", f1, false)
+
+    my$("btn2").attachEvent("onclick", f2)
+    my$("btn6").detachEvent("onclick", f2)
+</script>
+
+</html>

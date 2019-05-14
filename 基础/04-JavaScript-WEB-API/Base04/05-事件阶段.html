@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #dv1 {
+            width: 300px;
+            height: 300px;
+            background-color: aquamarine;
+        }
+
+        #dv2 {
+            width: 200px;
+            height: 200px;
+            background-color: beige;
+        }
+
+        #dv3 {
+            width: 50px;
+            height: 50px;
+            background-color: brown;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="dv1">
+        <div id="dv2">
+            <div id="dv3"></div>
+        </div>
+    </div>
+</body>
+<script src="../Base/common.js"></script>
+<script>
+    /*
+    事件三个阶段：
+    1.事件捕获阶段:从外向内
+    2.事件目标阶段:从最开始选择的那个
+    3.事件冒泡阶段:从里向外
+    为元素绑定事件：
+    addEventListener("没有on的事件类型",事件处理函数，控制事件的阶段)
+    阻止事件冒泡
+    window.event.cancelBubble=true;IE8 谷歌支持，火狐不支持
+    window.event就是一个对象，是IE中的标准
+    e.stopPropagation();阻止事件冒泡-----谷歌和火狐支持
+    属性的值：
+    1---捕获阶段
+    2---目标阶段
+    3---冒泡
+    window.event和e都是事件参数对象，一个是IE的标准，一个是火狐的标准
+    事件参数e在IE8的浏览器中不存在，此时用window.event来代替
+    addEventListener中第三个参数是控制事件阶段的
+    通过e.eventPhase这个属性可以知道当前的事件是什么阶段
+    */
+
+    var objs = [my$("dv3"), my$("dv2"), my$("dv1")]
+    objs.forEach(function(ele) {
+        ele.addEventListener("click", function(e) {
+            console.log(this.id + "====>" + e.eventPhase)
+        }, true)
+    })
+</script>
+
+</html>
